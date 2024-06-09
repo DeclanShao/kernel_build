@@ -28,7 +28,7 @@ jobs:
       - name: Pull kernel source
         run: |
           git clone --depth=1 ${{ env.KERNEL_SOURCE }} -b ${{ env.KERNEL_SOURCE_BRANCH }} kernel-source
-          echo "KERNEL_VERSION="$(cat kernel-source/arch/arm64/configs/${{ env.KERNEL_TARGET }}_defconfig | grep "CONFIG_LOCALVERSION\=" | sed -r 's/.*"(.+)".*/\1/' | sed 's/^.//')"" >> $GITHUB_ENV
+          echo "KERNEL_VERSION="$(cat kernel-source/arch/arm64/configs/vendor/${{ env.KERNEL_TARGET }}_defconfig | grep "CONFIG_LOCALVERSION\=" | sed -r 's/.*"(.+)".*/\1/' | sed 's/^.//')"" >> $GITHUB_ENV
 
       - name: Build kernel
         run: |
@@ -43,7 +43,7 @@ jobs:
                                   CROSS_COMPILE=$GITHUB_WORKSPACE/aarch64-linux-android-4.9/bin/aarch64-linux-android- \
                                   CROSS_COMPILE_ARM32=$GITHUB_WORKSPACE/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- "
           cd kernel-source
-          make ${args} ${{ env.KERNEL_TARGET }}_defconfig
+          make ${args} vendor/${{ env.KERNEL_TARGET }}_defconfig
           make -j64 ${args}
 
       - name: Package kernel
