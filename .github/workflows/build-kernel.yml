@@ -33,6 +33,7 @@ jobs:
           export KBUILD_BUILD_USER="zclkkk"
           export KBUILD_BUILD_HOST="workspace"
           args="                  ARCH=arm \
+                                  SUBARCH=arm \
                                   -j8 \
                                   O=out \
                                   CROSS_COMPILE=$GITHUB_WORKSPACE/aarch64-linux-android-4.9/bin/aarch64-linux-android- \
