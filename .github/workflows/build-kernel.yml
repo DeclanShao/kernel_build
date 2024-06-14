@@ -36,8 +36,8 @@ jobs:
                                   SUBARCH=arm \
                                   CC=gcc \
                                   -j8 \
-                                  CROSS_COMPILE=$GITHUB_WORKSPACE/arm-linux-gnueabihf/bin/arm-linux-gnueabihf- \
-                                  CROSS_COMPILE_ARM32=$GITHUB_WORKSPACE/arm-linux-gnueabihf/bin/arm-linux-gnueabihf- "
+                                  CROSS_COMPILE=arm-linux- \
+                                  TOOL_CHAIN_PREFIX=$GITHUB_WORKSPACE/arm-linux-gnueabihf/bin/arm-linux-gnueabihf- "
           cd kernel-source
           make ${args} ${{ env.KERNEL_TARGET }}_defconfig
           make -j64 ${args}
