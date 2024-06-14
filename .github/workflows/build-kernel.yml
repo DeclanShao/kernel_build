@@ -20,7 +20,9 @@ jobs:
 
       - name: Pull toolchain
         run: |
-          git clone --depth=1 https://github.com/nicknumb/buildroot_toolchain_gcc_linux-x86_arm_gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf --depth=1 arm-linux-gnueabihf
+          wget https://releases.linaro.org/components/toolchain/binaries/latest-4/arm-linux-gnueabihf/gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf.tar.xz
+          mv ./gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf.tar.xz ./arm-linux-gnueabihf.tar.gz
+          tar -zxvf arm-linux-gnueabihf.tar.gz
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 -b lineage-17.1 --depth=1 arm-linux-androideabi-4.9
 
       - name: Pull kernel source
