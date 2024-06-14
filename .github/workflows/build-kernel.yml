@@ -34,7 +34,6 @@ jobs:
           export KBUILD_BUILD_HOST="workspace"
           args="                  ARCH=arm \
                                   SUBARCH=arm \
-                                  CC=gcc \
                                   -j8 \
                                   CROSS_COMPILE=$GITHUB_WORKSPACE/arm-linux-gnueabihf/bin/arm-linux-gnueabihf- \
                                   CROSS_COMPILE_ARM32=$GITHUB_WORKSPACE/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- "
