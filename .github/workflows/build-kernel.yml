@@ -32,7 +32,7 @@ jobs:
         run: |
           export KBUILD_BUILD_USER="zclkkk"
           export KBUILD_BUILD_HOST="workspace"
-          args="                  ARCH=arm64 \
+          args="                  ARCH=arm \
                                   SUBARCH=arm \
                                   CC=gcc \
                                   -j8 \
