@@ -35,8 +35,7 @@ jobs:
           args="                  ARCH=arm \
                                   SUBARCH=arm \
                                   -j8 \
-                                  CROSS_COMPILE=$GITHUB_WORKSPACE/arm-linux-gnueabihf/bin/arm-linux-gnueabihf- \
-                                  CROSS_COMPILE_ARM32=$GITHUB_WORKSPACE/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- "
+                                  CROSS_COMPILE=$GITHUB_WORKSPACE/arm-linux-gnueabihf/bin/arm-linux-gnueabihf- "
           cd kernel-source
           make ${args} ${{ env.KERNEL_TARGET }}_defconfig
           make -j64 ${args}
