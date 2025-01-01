@@ -25,6 +25,10 @@ jobs:
           git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 arm-linux-androideabi-4.9
           git clone --depth=1 https://gitlab.com/ZyCromerZ/sdclang-16.1.0.1.git clang
 
+      - name: Libncurses workaround
+        run: |
+          sudo ln -s /usr/lib/libncursesw.so.6 /usr/lib/libtinfo.so.5
+
       - name: Pull kernel source
         run: |
           git clone --depth=1 ${{ env.KERNEL_SOURCE }} -b ${{ env.KERNEL_SOURCE_BRANCH }} kernel-source
