@@ -42,6 +42,7 @@ jobs:
                                   CROSS_COMPILE_ARM32=$GITHUB_WORKSPACE/arm-linux-androideabi-4.9/bin/arm-linux-androideabi- "
           cd kernel-source
           make ${args} ${{ env.KERNEL_CONFIG }}
+          make ${args} savedefconfig && cat ../out/defconfig
           make -j$(($(getconf _NPROCESSORS_ONLN) * 2)) ${args}
 
       - name: Package kernel
